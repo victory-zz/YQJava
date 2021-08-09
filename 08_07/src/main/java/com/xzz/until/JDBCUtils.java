@@ -8,6 +8,8 @@ public class JDBCUtils {
     public static String user = "root";
     public static String password = "123456";
 
+
+
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
