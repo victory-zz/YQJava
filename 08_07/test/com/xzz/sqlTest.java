@@ -1,9 +1,13 @@
 package com.xzz;
 
+import com.xzz.shangke.Impl.UserFunction;
+import com.xzz.shangke.Impl.UserFunctionImpl;
+import com.xzz.shangke.User;
 import com.xzz.until.JDBCUntil;
 import org.junit.Test;
 
 import java.sql.*;
+import java.util.List;
 
 public class sqlTest {
   Connection conn=null;
@@ -116,6 +120,15 @@ public class sqlTest {
       System.out.println("您的sql语句有误，出错信息为："+e.getMessage());
     }finally {
       JDBCUntil.close(preparedStatement,conn);
+    }
+  }
+
+  @Test
+  public void getUser() throws SQLException {
+    UserFunction uf = new UserFunctionImpl();
+    List<User> userList = uf.findAllUser();
+    for (User user : userList) {
+      System.out.println(user);
     }
   }
 

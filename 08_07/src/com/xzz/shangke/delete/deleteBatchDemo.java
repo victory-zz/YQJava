@@ -39,8 +39,8 @@ public class deleteBatchDemo {
     pstm = conn.prepareStatement(sql);
     for (int i=0;i< id.length;i++){
       pstm.setInt(1,id[i]);
-      pstm.executeUpdate();
-      if (pstm.executeUpdate()>0){
+      int i1 = pstm.executeUpdate();
+      if (i1>0){
         sum+=1;
       }
     }
