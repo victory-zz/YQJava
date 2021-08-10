@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.util.Properties;
+import java.util.Scanner;
 
 public class demo4 {
   public static void main(String[] args) throws Exception {
@@ -24,6 +25,13 @@ public class demo4 {
     Student instance = (Student) myClassName.newInstance();
     Method methodName = myClassName.getDeclaredMethod(p.getProperty("methodName"));
     methodName.invoke(instance,null);
+
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("请输入一个方法名：");
+    String scMethodName = scanner.next();
+    Method scDeMethod = myClassName.getDeclaredMethod(scMethodName);
+    scDeMethod.invoke(instance,null);
+
 
   }
 }
